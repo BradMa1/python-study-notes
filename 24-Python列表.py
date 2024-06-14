@@ -125,3 +125,87 @@ print(fruit)  # 输出['apple', 'pineapple']
 names = ['貂蝉','吕布','董卓']
 names.clear()
 print(names)
+
+# 4. 改操作：
+"""
+列表[索引] = 修改后的值         修改列表中的某个元素
+reverse()                      将数据序列进行倒序排序
+sort()                         对列表序列进行排序   
+copy()                         对列表序列进行拷贝
+"""
+# 4.1 列表[索引] = 修改后的值 
+list1 = ['貂蝉','大乔','小乔','八戒']  
+# 修改列表中的元素
+list1 [3] = '周瑜'
+print(list1)  # 打印['貂蝉', '大乔', '小乔', '周瑜'] 
+
+# 4.2 reverse()方法： 
+list2 = [1,2,3,4,5,6,7,8,9]
+list2.reverse()
+print(list2)  # 打印[9, 8, 7, 6, 5, 4, 3, 2, 1]，倒序排列，返回倒序排列后的列表
+
+# 4.3 sort()方法： 
+""" 列表序列.sort(key=None,reverse=False) """
+"""
+注意： key = None表示是否指定排序规则（默认为None），按照元素本身进行排序，key = 函数 表示按照函数的返回值进行排序。
+       reverse表示排序规则，reverse = True降序，reverse = False升序（默认）  
+"""
+list3 = [1,2,3,4,5,6,7,8,9]  
+list3.sort()  # 升序排列（从小到大），默认参数reverse = False，key = None，按照元素本身进行排序
+list3.sort(reverse=True)  # 降序排列（从大到小），参数reverse = True，key = None，按照元素本身进行排序  
+print(list3)
+
+# 4.4 copy() 方法：
+list4 = list3.copy()  # 复制列表list3
+print(list4)
+
+
+# 三、列表的循环遍历
+"""循环遍历就是使用while或for循环对列表中的每个数据进行打印输出"""
+# 1. while循环遍历
+list1 = ['貂蝉','大乔','小乔']  
+i = 0
+while i  < len(list1):
+    print(list1[i])  # 打印列表中的每个元素
+    i += 1
+
+# 2. for循环遍历
+list1 = ['貂蝉','大乔','小乔']
+for i in list1:  
+    print(i)
+
+
+# 四、列表的嵌套
+""" 列表嵌套：列表中又有一个列表，我们把这种情况就称之为列表嵌套 """
+students = [['张三','李四'],['王五','赵六'],['田七','孙八']]
+print(students[0][1])   # 打印李四
+for i in students:
+    print(i)  # 打印列表中的每个列表元素
+
+
+
+
+
+# 作业：
+# 1. 幸运数字6（只要是6的倍数）：输入任意数字，如数字8，生成nums列表，元素值为1~8，从中选取幸运数字移动到新列表lucky，打印nums与luck
+
+# 第一步：定义二个空列表
+nums = []
+lucky = []
+# 第一步：提示用户输入数字
+num = int(input('请输入任意数字：'))
+# 第三步：生成nums列表（把1~num）所有数据都追加到nums列表中
+for i in range(1, num + 1):
+    nums.append(i)
+
+# 第四步：对nums进行遍历操作，获取幸运数字
+for i in nums:
+    if i % 6 == 0:
+        # 幸运数字从nums中删除
+        nums.remove(i)
+        # 把幸运数字写入到lucky列表中
+        lucky.append(i)
+# 第五步：打印nums和lucky
+print(nums)
+print(lucky)
+    
