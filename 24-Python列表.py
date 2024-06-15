@@ -206,6 +206,24 @@ for i in nums:
         # 把幸运数字写入到lucky列表中
         lucky.append(i)
 # 第五步：打印nums和lucky
-print(nums)
-print(lucky)
-    
+print(nums)  # 打印nums列表中不包含幸运数字
+print(lucky)    # 打印幸运数字
+
+# 2. 列表嵌套：有2个教室[],[],[]，8名讲师，['A','B','C','D','E','F','G','H']，将8名讲师随机分配讲师到3个教室中
+import random
+
+# 定义3间教室以及8名讲师
+rooms = [[],[],[]]
+teachers = ['A','B','C','D','E','F','G','H']
+# 对所有讲师进行遍历操作
+for i in teachers:
+    # 生成随机数
+    index = random.randint(0, 2) 
+    rooms[index].append(i)
+# 输出每个教室的讲师信息
+print(rooms)
+i = 1
+for room in rooms:
+    print(f'教室{i}的讲师是：{room}')  # 打印每个教室的讲师信息，i是教室的编号
+    i += 1
+   
