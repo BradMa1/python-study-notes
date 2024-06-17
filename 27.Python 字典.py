@@ -83,3 +83,77 @@ age = cat.get('age')
 gender = cat.get('gender','未知')
 address = cat.get('address')
 print(f'姓名：{name},年龄：{age},性别：{gender},地址：{address}')  # 输出：姓名：Tom,年龄：5,性别：未知,地址：美国纽约
+
+# 案例2：提取person字典中的所有key
+# 定义一个字典
+person = {'name':'貂蝉','age':'18','mobile':'18634151264'}
+# 提取字典中的name、age、以及mobile属性
+print(person.keys())
+
+# 案例3：提取person字典中的所有value值
+# 定义一个字典
+person = {'name':'貂蝉','age':'18','mobile':'18634151264'}
+# 提取字典中的'貂蝉'、'18'以及'18634151264'号码
+print(person.values())
+
+# 案例4：使用items()方法提取数据
+# 定义一个字典
+person = {'name':'貂蝉','age':'18','mobile':'18634151264'}
+# 调用items获取数据
+print(person.items())   # 打印 ([('name', '貂蝉'), ('age', '18'), ('mobile', '18634151264')])
+# 结合for循环对字典中的数据进行遍历
+for key,value in person.items():  # 遍历字典中的数据，并打印每个键值对
+    print(f'{key}:{value}')
+
+
+# 综合案例：通讯录管理系统
+"""
+需求：开发一个通讯录管理系统，主要用于实现存储班级中同学的信息（姓名、年龄、电话）
+知识点：列表、字典
+延申：在python中，可以使用字典来保存一个人的基本信息。但是如果要保存多人的信息，可以把列表和字典结合起来
+"""
+"""
+stedents = [0,1,2]
+
+student = [{'name':'刘备','age':'18','mobile':'10086'},{'name':'貂蝉','age':'17','mobile':'10010'},
+{'name':'吕布','age':'19','mobile':'10000'}]
+
+要求：正常情况下，通讯录应该有4个功能：增删改查
+"""
+# 1. 定义一个列表，将来用于存储所有同学的信息
+students = []
+
+# 2. 打印功能菜单
+print('-'*40)
+print('欢迎使用传智教育通讯录管理系统V1.0')
+print('[1] 增加学员信息')
+print('[2] 删除学员信息')
+print('-'*40)
+
+# 3.提示用户进行相关操作
+user_num = int(input('请输入您要进行的操作编号：'))
+if user_num == 1:
+    # 4.提示用户输入学员信息
+    student = {}
+    student['name'] = input('请输入学员的姓名：')
+    student['age'] = int(input('请输入学员的年龄：'))
+    student['mobile'] = input('请输入学员的电话：')
+    # 5.把学员的信息保存在列表中
+    students.append(student)
+    print(students)
+elif user_num == 2:
+    name = input('请输入要删除的学员姓名：')
+    # 遍历所有学员信息
+    for i in students:
+        if i['name'] == name:
+            # 从列表中删除整个学员信息
+            students.remove(i)
+            print('删除成功')
+            print(students)
+
+        else:
+            print('您要删除的学员信息不存在')
+            
+else:
+    print('输入有误，请重新输入')
+    
