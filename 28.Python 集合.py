@@ -79,4 +79,25 @@ for i in s1:
 
 
 # 三、集合中的交集、并集与差集特性
-""" 在Python中，可以使用&或itersection()来求两个集合的交集 """
+""" 
+在Python中，可以使用 '&' 或 itersection() 来求两个集合的交集
+在Python中，可以使用 '|' 或 union() 来求两个集合的并集
+在Python中，可以使用 '—' 来 difference() 求两个集合的差集
+
+"""
+
+# 求集合中的交集、并集、差集
+s1 = {'刘备','张飞','关羽','貂蝉'}
+s2 = {'袁绍','吕布','曹操','貂蝉'}
+
+# 求两个集合的交集
+print(s1 & s2)  # 交集
+print(s1.intersection(s2))  # 交集
+
+# 求两个集合的并集
+print(s1 | s2)  # 并集
+print(s1.union(s2))  # 并集
+
+# 求两个集合的差集
+print(s1 - s2)  # 差集
+print(s1.difference(s2))  # 差集
