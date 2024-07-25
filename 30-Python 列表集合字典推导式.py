@@ -101,3 +101,58 @@ print(list1)
 list1 = [(i,j) for i in range(1,3) for j in range(0,3)]
 print(list1)
 
+
+# 二、字典推导式
+'''思考：有如下两个列表，如何快速给合并为一个字典'''
+list1 = ['name','age','gender']
+list2 = ['小明','18','男']
+
+person = {'name':'小明','age':'18','gender':'男'}
+print(person)
+
+"""使用字典推导式"""
+'''
+基本语法：
+字典推导式是列表推导式思想的延续，语法差不多，只不过产生的是字典而已。
+字典推导式格式：
+
+变量 = {key:value for key,value in 序列}    
+
+等价于
+
+for key,value in 序列:
+    key = key
+    value = value
+'''
+# 字典推导式作用:快速合并列表为字典或提取字典中目标数据
+
+# 案例1：创建一个字典：字典key是1-5数字，value是这个数字的2次方
+dict1 = {i : i**2 for i in range(1,6)}
+print(dict1)
+
+# 案例2：将两个列表合并为一个字典
+list1 = ['name','age','gender']
+list2 = ['小明','18','男']
+ 
+person = {list1[i]:list2[i] for i in range(len(list1))}
+print(person)
+
+# 案例3：提取字典中目标数据
+counts = {'MBP':268,'HP':125,'DELL':201,'Lenovo':199,'ACER':99}
+
+# 需求：提取上述字典中电脑数量大于等于200的数据(键值对)
+counts = {key:value for key,value in counts.items() if value >= 200}
+print(counts)
+
+
+# 三、集合推导式
+"""集合最大的特点是去重"""
+
+# 需求：创建一个集合，数据为下方列表的2次方
+list1 = [1,1,2]
+set1 = (1,4)
+
+# 推导式：
+list1 = [1,1,2]
+set1 = {i **2 for i in list1}
+print(set1)
