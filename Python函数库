@@ -118,3 +118,9 @@ globals_dict = globals() # 返回包含当前全局变量的字典
 
 40. 「locals()」 - 返回当前局部符号表的字典。
 local_dict = locals() # 返回包含当前局部变量的字典，
+
+41.random() - 生成随机数
+
+
+
+
