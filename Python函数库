@@ -1,126 +1,0 @@
-Python函数库
-1. 「len()」 - 返回对象的长度或项目数。
-length = len("Hello, World!") # 返回 13
-
-2. 「str()」 - 将对象转换成字符串。
-string_representation = str(123) # 返回 '123'
-
-3. 「type()」 - 返回对象的类型。
-type_of_var = type("Hello") # 返回 <class 'str'>
-
-4. 「int()」 - 将对象转换成整数。
-integer_value = int("123") # 返回 123
-
-5. 「float()」 - 将对象转换成浮点数。
-float_value = float("123.45") # 返回 123.45
-
-6. 「bool()」 - 将对象转换成布尔值。
-boolean_value = bool(0) # 返回 False
-
-7. 「list()」 - 将对象转换成列表。
-my_list = list((1, 2, 3)) # 返回 [1, 2, 3]
-
-8. 「tuple()」 - 将对象转换成元组。
-my_tuple = tuple([1, 2, 3]) # 返回 (1, 2, 3)
-
-9. 「set()」 - 将对象转换成集合。
-my_set = set([1, 2, 2, 3]) # 返回 {1, 2, 3}
-
-10. 「dict()」 - 创建一个字典。
-my_dict = dict(name='Alice', age=25) # 返回 {'name': 'Alice', 'age': 25}
-
-11. 「sorted()」 - 对可迭代对象的元素进行排序。
-sorted_list = sorted([3, 1, 2]) # 返回 [1, 2, 3]
-
-12. 「dir()」 - 返回对象的属性和方法的列表。
-attributes = dir("Hello") # 返回字符串对象的方法列表
-
-13. 「getattr()」 - 从对象中获取属性值。
-attribute_value = getattr("Hello", "upper") # 返回字符串对象的 upper 方法
-
-14. 「setattr()」 - 设置对象的属性值。
-class MyClass:pass instance = MyClass() setattr(instance, "my_attribute", "Hello")
-
-15. 「hasattr()」 - 检查对象是否具有属性。
-has_upper = hasattr("Hello", "upper") # 返回 True
-
-16. 「isinstance()」 - 检查对象是否是类的实例。
-is_str = isinstance("Hello", str) # 返回 True
-
-17. 「issubclass()」 - 检查一个类是否是另一个类的子类。
-is_subclass = issubclass(str, object) # 返回 True
-
-18. 「print()」 - 打印对象到控制台。
-print("Hello, World!") # 打印 "Hello, World!"
-
-19. 「range()」 - 生成整数序列。
-for i in range(5): # 0, 1, 2, 3, 4 print(i)
-
-20. 「zip()」 - 将多个可迭代对象中对应的元素打包成一个个元组。
-a = [1, 2, 3] b = ["one", "two", "three"] for x, y in zip(a, b): print(x, y) # 打印 (1, 'one'), (2, 'two'), (3, 'three')
-
-21. 「all()」 - 如果迭代器中的所有元素都为真值，则返回 True。
-all_elements = all([1, 2, 3, 4]) # 返回 True
-
-22. 「any()」 - 如果迭代器中至少有一个元素为真值，则返回 True。
-any_elements = any([0, 1, 2]) # 返回 True
-
-23. 「enumerate()」 - 将一个可迭代对象组合为一个索引序列，同时列出数据和数据下标。
-for index, value in enumerate(["a", "b", "c"]): print(index, value) # 打印 0 a, 1 b, 2 c
-
-24. 「filter()」 - 使用函数从可迭代对象中过滤出符合条件的元素。
-even_numbers = filter(lambda x: x % 2 == 0, [1, 2, 3, 4, 5]) # 返回 2, 4
-
-25. 「map()」 - 将一个函数应用于可迭代对象的每个元素。
-squared_numbers = map(lambda x: x**2, [1, 2, 3, 4]) # 返回 1, 4, 9, 16
-
-26. 「reduce()」 - 对可迭代对象中的元素进行累积操作。
-from functools import reduce total = reduce(lambda x, y: x + y, [1, 2, 3, 4]) # 返回 10
-
-27. 「sum()」 - 求和可迭代对象中的元素。
-total_sum = sum([1, 2, 3, 4]) # 返回 10
-
-28. 「max()」 - 返回可迭代对象中的最大值。
-max_value = max([1, 2, 3, 4]) # 返回 4
-
-29. 「min()」 - 返回可迭代对象中的最小值。
-min_value = min([1, 2, 3, 4]) # 返回 1
-
-30. 「abs()」 - 返回数字的绝对值。
-absolute_value = abs(-10) # 返回 10
-
-31. 「sectionmod()」 - 取模和除法运算，返回一个包含商和余数的元组。
-quotient, remainder = sectionmod(10, 3) # 返回 (3, 1)
-
-32. 「round()」 - 对浮点数进行四舍五入。
-rounded_value = round(3.14159, 2) # 返回 3.14
-
-33. 「input()」 - 从控制台读取一行输入。
-user_input = input("Enter something: ") # 等待用户输入
-
-34. 「open()」 - 打开一个文件，并返回文件对象。
-file = open("example.txt", "r") # 打开文件用于读取
-
-35. 「staticmethod()」 - 将一个方法转换为静态方法。
-class MyClass: @staticmethod def my_static_method(): pass
-
-36. 「classmethod()」 - 将一个方法转换为类方法。
-class MyClass: @classmethod def my_class_method(cls): pass
-
-37. 「property()」 - 将一个方法转换为属性。
-class MyClass: def __init__(self, value): self._my_attribute = value @property def my_attribute(self): return self._my_attribute
-
-38. 「isinstance()」 - 检查一个对象是否是一个已知的类型。
-isinstance(123, int) # 返回 True
-
-39. 「globals()」 - 返回当前全局符号表的字典。
-globals_dict = globals() # 返回包含当前全局变量的字典
-
-40. 「locals()」 - 返回当前局部符号表的字典。
-local_dict = locals() # 返回包含当前局部变量的字典，
-
-41.random() - 生成随机数
-
-
-
-
