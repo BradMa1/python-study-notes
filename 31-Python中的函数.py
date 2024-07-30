@@ -232,3 +232,44 @@ testA()    # 调用testA函数
 
 最终程序执行完毕！
 '''
+
+# 六、函数应用案例：
+# 案例1：使用print方法打印一条横线
+print('-' *40)
+
+# 案例2：对案例1进行升级，可以根据输入的num数值，生成指定数量的横线
+def print_lines(num,length):
+    """print_lines()函数的功能是打印指定数量的横线,num为打印的横线数量，length为打印的横线长度"""
+    for i in range(num):
+        print('-' *length)
+
+# 调用函数
+# help(print_lines))
+print_lines(4,40)
+
+# 案例3：封装一个函数，用于求3个数的平均值
+def average_num(num1,num2,num3):
+    """average_num()函数主要用于生成3个数的平均值，一共有3个参数，num1,num2,num3"""
+    sum = num1 + num2 + num3
+    return sum / 3 
+
+# 调用函数
+# help(average_num)
+print(average_num(10,20,30))
+
+# 练习题：编写一个函数，有一个参数str1，输入信息如'1.2.3.4.5',使用函数对其进行处理，要求最终返回的结果为'5-4-3-2-1'
+def func(str1):
+    """str_reverse()函数的功能是反转字符串，str1为输入的字符串"""
+    # 方法一：对字符串进行反转操作（切片）
+    str1 = str1[::-1]
+    return str1.replace('.','-')
+    # 方法二：使用split切割，然后reverse进行翻转
+    list1 = str1.split('.')
+    list1.reverse()
+    return '-'.join(list1)
+   
+
+# 调用函数
+str1 = '1.2.3.4.5'
+print(func(str1))   # 5-4-3-2-1
+
