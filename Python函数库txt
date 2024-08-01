@@ -114,12 +114,19 @@ class MyClass:def __init__(self, value):self._my_attribute = value@propertydef m
 isinstance() - 检查一个对象是否是一个已知的类型。
 isinstance(123, int) # 返回 True
 
+global 关键字 - 将局部变量修改为全局变量
+num = 10
+def func():
+    global num
+    num = 20
+func()
+print(f'全局变量num的值：{num}')  # 输出：全局变量num的值：20
+
 globals() - 返回当前全局符号表的字典。
 globals_dict = globals() # 返回包含当前全局变量的字典
 
 locals() - 返回当前局部符号表的字典。
 local_dict = locals() # 返回包含当前局部变量的字典，
-
 
 
 

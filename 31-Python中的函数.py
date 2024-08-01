@@ -273,3 +273,6 @@ def func(str1):
 str1 = '1.2.3.4.5'
 print(func(str1))   # 5-4-3-2-1
 
+
+
+
