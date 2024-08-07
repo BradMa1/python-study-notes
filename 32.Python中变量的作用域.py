@@ -200,10 +200,55 @@ user_info('婉儿',18,'女')
 """
 # 2.4.1 包裹(packing)位置参数
 def user_info(*args):   # arguments参数
-    print(args)
+    # print(args)
+    print(f'我的名字叫{args[0]}，今年{args[1]}岁了，住在{args[2]}')
 
 
 # 调用函数，传递参数
 user_info('Tom',23,'美国纽约')
 
 # 注意：传进的所有参数都会被args变量收集，它会根据传递参数的位置进行打包，形成一个元组(tuple)，args是元组类型，这就是包裹位置传递。
+
+# 2.4.2 包裹关键字传递
+'''基本语法：'''
+def user_info(**kwargs):   # keyword arguments参数
+    print(kwargs)   # 字典类型数据，对传递参数没有顺序要求，格式要求key = value
+    print(f'我的名字叫{kwargs["name"]}，今年{kwargs["age"]}岁了，住在{kwargs["address"]}')
+
+
+# 调用函数，传递参数
+user_info(name='Tom',age=23,address='美国纽约')
+
+# 注意：传进的所有参数都会被kwargs变量收集，它会根据传递参数的键进行打包，形成一个字典(dict)，kwargs是字典类型
+
+# 综上：无论是包裹位置传递还是包裹关键字传递，都是一个组包的过程
+# 组包：就是把多个数据组成元组或者字典的过程
+
+
+# 五、Python拆包(元组和字典)
+
+"""Python拆包：就是把元组或字典中的数据单独的拆分出来，然后赋予给其它的变量"""
+'''拆包：对于函数中的多个返回数据，去掉元组，列表或者字典直接获取里面数据的过程'''
+
+# 1.元组的拆包过程
+def func():
+    # 经过一系列操作返回一个元组
+    return 100,200  #  tuple元组类型的数据
+
+
+# 定义量两个变量接收元组中的每个数据（拆包）
+num1, num2 = func()
+# 打印num1和num2的值
+print(f'num1的值：{num1}')  # 输出：num1的值：100
+print(f'num2的值：{num2}')  # 输出：num2的值：200
+
+# 2.字典的拆包过程
+dict1 = {'name':'Tom','age':23}
+#拆包的过程（字典）
+a, b = dict1
+print(a)   # 输出：name
+print(b)   # 输出：age
+#获取字典中的数据
+print(dict1[a])   # 输出：Tom
+print(dict1[b])   # 输出：23
+
