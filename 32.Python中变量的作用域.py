@@ -312,3 +312,122 @@ func(*tuple1, **dict1)
 5.遍历所有学生的信息
 6.退出录系统
 """
+# 2、功能实现步骤
+""""
+1.显示功能界面
+2.用户输入功能序号
+3.根据用户输入的功能序号，执行不同的功能（函数）
+4.定义函数
+5.调用函数
+"""
+
+# 1.封装一个menu函数，用于显示功能界面
+def menu():
+    print('-' *40)
+    print('传智教育学生通讯录管理系统 v1.0')
+    print('1.添加学生的信息')
+    print('2.删除学生的信息')
+    print('3.修改学生的信息')
+    print('4.查询学生的信息')
+    print('5.遍历所有学生的信息')
+    print('6.退出录系统')
+    print('-' *40)
+
+# 6.定义一个全局变量
+info =[]
+
+# 5.定义add_student函数，用于添加学生信息
+def add_student():
+    #  定义一个空字典，接受name、age、mobile
+    info_dict = {}
+    #  提示用户输入学生信息：name、age、mobiole
+    info_dict['name'] =input('请输入学生姓名：')
+    info_dict['age'] = int(input('请输入学生年龄：'))
+    info_dict['mobile'] = input('请输入学生手机号：')
+    #  声明全局变量info
+    global info
+    #  追加数据到info列表中
+    info.append(info_dict)
+    print('学生信息添加成功！')
+    print(info)
+
+# 7.定义del_student函数，用于删除学生信息
+def del_student():
+    #  提示用户输入要删除的学生信息
+    name = input('请输入要删除的学生姓名：')
+    global info
+    #  遍历info列表，查找name
+    for i in info:
+        if i['name'] == name:
+            info.remove(i)
+            print('学生信息删除成功！')
+            print(info)
+            break    
+    else:
+        print('学生信息不存在！')
+
+# 8.定义mod_student函数，用于修改学生信息
+def mod_student():
+    #  提示用户输入要修改的学生信息 
+    name = input('请输入要修改的学生姓名：')
+    global info
+    #  遍历info列表，查找name
+    for i in info:
+        if i['name'] == name:
+           i['name'] = input('请输入修改后的学生姓名：')
+           i['age'] = int(input('请输入修改后的学生年龄：'))
+           i['mobile'] = input('请输入修改后的学生手机号：')
+           print('学生信息修改成功！')
+           print(info)
+           break
+    else:
+        print('学生信息不存在！')
+
+# 9.定义show_student函数，用于查询学生信息
+def show_student():
+   #  提示用户输入要查询的学生信息 
+   name = input('请输入要查询的学生姓名：')
+   #  遍历info列表，查找name
+   for i in info:
+       if i['name'] == name:
+           print(f'学生姓名：{i["name"]}, 学生年龄：{i["age"]}, 学生手机号：{i["mobile"]}')  
+           break
+   else:
+       print('学生信息不存在！')
+
+# 10.定义show_all函数，用于遍历所有学生信息
+def show_all():
+    #  直接对info进行遍历操作
+    for i in info:
+        print(f'学生姓名：{i["name"]}, 学生年龄：{i["age"]}, 学生手机号：{i["mobile"]}')
+
+                  
+# 4.编写死循环，让程序可以一直执行下去
+menu()
+while True:
+    # 2.使用input函数接收用户的输入信息
+    user_num = int(input('请输入您要操作的功能序号：'))
+
+    # 3.根据用户输入的功能序号，执行相关的功能（使用if多分支条件实现不同的功能）
+    if user_num == 1:
+        #  添加学生信息
+        add_student()
+    elif user_num == 2:
+        #  删除学生信息
+        del_student()
+    elif user_num == 3:
+        #  修改学生信息
+        mod_student()
+    elif user_num ==4:
+        #  查询学生信息
+        show_student()  
+    elif user_num == 5:
+        #  遍历所有学生信息
+        show_all()
+    elif user_num == 6:
+        #  退出系统
+        print('感谢使用传智教育学生通讯录管理系统')
+        break
+    else:
+        print('输入有误，请重新输入...')
+
