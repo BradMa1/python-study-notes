@@ -99,7 +99,7 @@ print(str1[0])  # 输出：a
 print(str1[3])  # 输出：d
 
 print(str1[6])  # 输出：g
-print(str1[-1])  # 输出：g
+print(str1[-1])  # 输出：g,从后往前数，-1代表最后一个字符
 
 
 
