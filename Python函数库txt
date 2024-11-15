@@ -128,6 +128,10 @@ globals_dict = globals() # 返回包含当前全局变量的字典
 locals() - 返回当前局部符号表的字典。
 local_dict = locals() # 返回包含当前局部变量的字典，
 
+items() 把字典中的每对key和value组成一个元组，并把这些元组放在列表中返回
+d = {'a': 1,'b': 2,'c': 3}
+print(d)    # {'a': 1, 'b': 2, 'c': 3}
+print(d.items())    # dict_items([('a', 1), ('b', 2), ('c', 3)])
 
 
 
