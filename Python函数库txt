@@ -45,6 +45,9 @@ my_dict = dict(name='Alice', age=25) # 返回 {'name': 'Alice', 'age': 25}
 sorted() - 对可迭代对象的元素进行排序。
 sorted_list = sorted([3, 1, 2]) # 返回 [1, 2, 3]
 
+[列表].sort(key=排序的key索引, reverse=True) # 对列表进行排序。True为降序，False为升序。
+
+
 dir() - 返回对象的属性和方法的列表。
 attributes = dir("Hello") # 返回字符串对象的方法列表
 
@@ -90,8 +93,10 @@ max_value = max([1, 2, 3, 4]) # 返回 4
 min() - 返回可迭代对象中的最小值。
 min_value = min([1, 2, 3, 4]) # 返回 1
 
-abs() - 返回数字的绝对值。
+abs() - 返回数值的绝对值，可以完成对数值取绝对值操作。
 absolute_value = abs(-10) # 返回 10
+正数取绝对值，结果是其本身
+负数取绝对值，结果是其相反数
 
 sectionmod() - 取模和除法运算，返回一个包含商和余数的元组。
 quotient, remainder = sectionmod(10, 3) # 返回 (3, 1)

@@ -47,25 +47,51 @@ print(fn2(10,20))
 
 
 # 6.lambda表达式相关应用
-'''
-无参数：
+
+# 1.无参数：
 fn1 = lambda: 100
 print(fn1())
 
-一个参数：
+# 2.一个参数：
 fn2 = lambda num1: num1 + 100
 print(fn2(10))
 
-默认参数：
+# 3.默认参数：
 fn3 = lambda a,b,c=10: a + b + c
 print(fn3(10,20))
 
-可变参数：*args
+# 4.可变参数：*args
 fn4 = lambda *args: args
 print(fn4(10,20,30,40,50))  # 返回值为元组
 
-可变参数：**kwargs
+# 5.可变参数：**kwargs
 fn5 = lambda **kwargs: kwargs
 print(fn5(name='张三',age=18))  # 返回值为字典
 
-'''
+# 6.带if判断的lambda表达式
+fn6 = lambda num1,num2: num1 if num1 > num2 else num2 # 结合三目运算符使用
+print(fn6(10,20))
+
+# 7.列表数据 + 字典数据排序（重点）
+students = [
+    {'name': 'Tom', 'age': 20},
+    {'name': 'Rose', 'age': 19},
+    {'name': 'Jack', 'age': 22},
+]
+
+# 按name值升序排序
+students.sort(key=lambda x: x['name'])
+print(students)
+
+# 按age值降序排序
+students.sort(key=lambda x: x['age'])
+print(students)
+
+# 按name值降序排序
+students.sort(key=lambda x: x['name'],reverse=True)
+print(students)
+
+# 按age值降序排序
+students.sort(key=lambda x: x['age'],reverse=True)
+print(students)
+
