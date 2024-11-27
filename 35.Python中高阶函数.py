@@ -48,9 +48,46 @@ print(fn3(10.2,6.9,round))
 # 1.map()函数
 '''
 基本语法：
-map(func,lst) 将传入的函数变量func作用到lst变量的每个元素中，并将结果组成新的列表/迭代器返回
+map(func,lst) 将传入的函数变量func作用到lst变量的每个元素中，并将结果组成新的列表(Python2)/迭代器(Python3)返回
+func是函数名，lst是可迭代对象（如列表、元组、集合等）
 '''
+# 定义一个函数
+def func(n):
+    return n ** 2
+# 定义一个列表
+list1 = [1,2,3]
+# 使用map对lst进行func操作
+list2 = map(func,list1)
+print(list2) # <map object at 0x000001D3E4B8E6D0> -->Python3中返回的是迭代器
+print(list(list2)) # [1, 4, 9] -->Python3中需要转换成列表才能打印
+
 
 # 2.reduce()函数
+'''
+reduce(func,lst) 其中func必须有两个参数。每次func计算的结果继续和序列的下一个元素做累加计算。
+注意：reduce()传入的参数func必须接收两个参数
+'''
+list1 = [1,2,3,4,5]
+
+def func(n1,n2):
+    return n1 + n2
+# reduce(func,lst)则把列表中的每个元素放入func中进行加工，然后进行累加操作
+
+import functools
+
+# 定义一个函数
+def func(n1,n2):
+    return n1 + n2
+# 定义一个列表
+list1 = [10,20,30,40,50]
+# 调用reduce函数求列表中所有元素的和
+sums = functools.reduce(func,list1)
+print(sums) # 150
+
+
+
+
+
+
 
 # 3.filter()函数 
