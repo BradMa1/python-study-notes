@@ -36,7 +36,6 @@ print(fn2(10.2,6.9))
 def fn3(num1,num2,f):
     # f代表要传入的参数（参数是一个函数名，如abs或round）
   return f(num1) + f(num2)
-
 # 绝对值求和
 print(fn3(-10,10,abs))
 # 四舍五入求和
@@ -75,19 +74,29 @@ def func(n1,n2):
 
 import functools
 
-# 定义一个函数
+# 定义一个函数（求和）
 def func(n1,n2):
     return n1 + n2
 # 定义一个列表
 list1 = [10,20,30,40,50]
 # 调用reduce函数求列表中所有元素的和
-sums = functools.reduce(func,list1)
+sums = functools.reduce(func,list1) 
 print(sums) # 150
 
 
-
-
-
-
-
 # 3.filter()函数 
+'''
+filter(func,lst)函数用于过滤序列，过滤掉不符合条件的元素，返回一个filter对象。如果要转换为列表，可以使用list()来转换。
+'''
+# 定义一个函数（获取所有的偶数）
+def func(n):
+   return n % 2 == 0  #返回True或False
+
+# 定义一个序列
+list1 = [1,2,3,4,5,6,7,8,9,10]
+
+# 调用filter函数过滤序列
+result = filter(func,list1) # <filter object at 0x000001D3E4B8E6D0> -->Python3中返回的是迭代器 
+print(list(result)) 
+
+
