@@ -155,7 +155,7 @@ f.read(1)  # b'd'
 
 
 # 十、文件备份案例
-# 1、需求：用户输入当前目录下任意文件名，程序完成对该文件的备份功能（备份文件名为 xx[备份]后缀 ，例如：test[备份].txt）。
+# 需求：用户输入当前目录下任意文件名，程序完成对该文件的备份功能（备份文件名为 xx[备份]后缀 ，例如：test[备份].txt）。
 """
 实现思路：
   1. 接收用户输入的文件名
@@ -163,12 +163,12 @@ f.read(1)  # b'd'
   3. 备份文件写入数据
 """
 
-# 2、代码实现
+# 1、代码实现
 
-# 1. 接收用户输入的文件名（要备份的文件名）
+# 1.1. 接收用户输入的文件名（要备份的文件名）
 oldname = input('请输入要备份的文件名：')  # test.txt
 
-# 2、 规划备份文件名
+# 1.2、 规划备份文件名
 # 搜索点号
 index = oldname.rfind('.')
 # 返回文件名和文件后缀
@@ -177,7 +177,7 @@ postfix = oldname[index:]  # 切片，从点号开始切到文件末尾
 newname = name + '[备份]' + postfix  
 print(newname)
 
-# 3、对文件进行备份操作
+# 1.3、对文件进行备份操作
 old_f = open(oldname,'r')
 new_f = open(newname,'w')
 
@@ -188,8 +188,43 @@ while True:
         break
     new_f.write(content)
 
-# 4、关闭文件
+# 1.4、关闭文件
 old_f.close()
 new_f.close()
     
+# 2、查漏补缺
+"""要备份的文件名称都是由用户通过input方法输入而来的，但是也一定要要记住，只要在程序中有人为输入，
+强烈建议对用户输入的数据进行校验，防止用户输入错误导致程序异常。"""
+
+# 1.1. 接收用户输入的文件名（要备份的文件名）
+oldname = input('请输入要备份的文件名：')  # test.txt
+
+# 1.2、 规划备份文件名
+# 搜索点号
+index = oldname.rfind('.')
+#对index进行判断，判断是否合理（index >0）
+if index > 0:
+    # 返回文件名和文件后缀
+    name = oldname[:index] # 切片，从开始位置切到点号结束
+    postfix = oldname[index:]  # 切片，从点号开始切到文件末尾 
+    newname = name + '[备份]' + postfix  
+    print(f'备份成功：',{newname})
+
+    # 1.3、对文件进行备份操作
+    old_f = open(oldname,'r')
+    new_f = open(newname,'w')
+
+    # 读取原文件内容，写入新文件
+    while True:
+        content = old_f.read(1024)  # 读取原文件内容,每次读取1024个字节
+        if len(content) == 0:
+            break
+        new_f.write(content)
+
+    # 1.4、关闭文件
+    old_f.close()
+    new_f.close()
+else:
+    print('文件名输入有误！无法进行备份操作......')
+
 
