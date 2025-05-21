@@ -4,7 +4,7 @@ print(type(list1))
 
 #  2. tuple元组类型
 tuple1 = (10,20,30,40)
-print(type(tuple))
+print(type(tuple1))
 
 #  3. set集合类型：去重
 set1 = (10,20,30,40)
