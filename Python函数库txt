@@ -138,5 +138,9 @@ d = {'a': 1,'b': 2,'c': 3}
 print(d)    # {'a': 1, 'b': 2, 'c': 3}
 print(d.items())    # dict_items([('a', 1), ('b', 2), ('c', 3)])
 
-
+str.replace()  替换字符串中的某些子字符串
+str.replace(old, new, count=-1)
+old：要被替换的子字符串。
+new：用来替换的新子字符串。
+count：可选参数，指定替换的最大次数。默认值为-1，表示替换所有的匹配项
 
