@@ -126,4 +126,78 @@ for file in os.listdir():
 os.rmdir('test')
 
 
-# 五、
+# 五、文件夹删除补充（递归删除、慎重）
+
+"""
+递归删除文件夹的原理：
+  理论上，在其删除过程中，如果文件夹非空，则自动切换到文件夹的内部，然后把其内部的文件，
+  一个一个删除，当所有文件删除完毕后，返回到上一级目录，删除文件夹本身。
+"""
+
+# 导入shutil模块
+import shutil
+
+
+# 递归删除非空目录
+shutil.rmtree("要删除文件夹的路径")
+
+
+
+
+# 六、文件操作综合案例
+
+# 1、需求分析
+"""
+需求：批量修改文件名，既可添加指定字符串，也可删除指定字符串。
+
+python-file1.txt  
+python-file2.txt  
+python-file3.txt
+
+"""
+
+# 2、步骤
+"""
+(1).设置添加删除字符串的标识
+(2).获取指定目录下的所有文件
+(3).将原有文件名添加/删除指定字符串，构造新名字
+(4).使用os模块的os.rename（）方法，对文件进行重命名操作
+"""
+
+# 3、编写实例代码
+
+# 1、导入os模块
+import os
+
+
+# 2、定义要重命名的目录
+path = "./static"
+
+# 3、切换到上面指定的目录中
+os.chdir(path)
+print(os.getcwd())
+
+# 5、定义一个标识，用于确认是添加字符还是删除字符
+flag = int(input('请输入要执行的操作（1-添加字符，2-删除字符）：'))
+
+# 4、对目录中的所有文件进行遍历输出
+for file in os.listdir():
+    # 5、判断我们要执行的操作（1-添加字符，2-删除字符）
+    if flag == 1:
+        # 01.txt => python-01.txt
+        newname = "python-" + file
+        # 重命名操作
+        os.rename(file,newname)
+        print('文件批量命名成功')
+
+    elif flag == 2:
+        # python-01.txt => 01.txt
+        index = len('python-')
+        newname = file[index:]
+        # 重命名操作
+        os.rename(file,newname)
+        print('文件批量命名成功')
+    else:
+        print("输入错误，请重新输入")
+  
+
