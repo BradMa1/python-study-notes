@@ -149,3 +149,14 @@ old：要被替换的子字符串。
 new：用来替换的新子字符串。
 count：可选参数，指定替换的最大次数。默认值为-1，表示替换所有的匹配项
 
+readlines()函数：主要用于文本类型数据的读取
+"""readlines可以按照行的方式把整个文件中的内容进行一次性读取，并且返回一个列表，其中每一行的数据为一个元素。"""
+# 打开文件
+f = open('python.txt','r',encoding='utf-8')
+# 使用readlines()方法读取文件所有内容
+lines = f.readlines()
+for i in lines:
+    print(i)
+print(lines)
+# 关闭文件
+f.close()
