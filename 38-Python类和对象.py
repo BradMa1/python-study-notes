@@ -139,3 +139,93 @@ p1.age = 500
 p1.address = "花果山"
 # 4、调用speak方法
 p1.speak()
+
+
+# 七、类中的__init__初始化方法（魔术方法）
+"""
+在Python中，__xxx__()，的函数叫魔法方法，指的是具有特殊功能的函数。
+
+"""
+
+# 1、__init__()方法 (初始化方法或构造方法)
+"""
+使用__init__()方法，其作用：实例化对象时，连带其中的参数，会一并传给__init__()函数并自动执行它，__init__()函数的参数列表会在开头多出一项，
+它永远指代新建的那个实例对象，Python语法要求这个参数必须要有，名称为self。
+
+"""
+
+# 1.定义一个类
+class person():
+  # 初始化实例对象属性
+  def __init__(self,name,age):
+    # 赋予name属性、age属性给实例化对象本身
+    # self.实例化对象属性 = 参数
+    self.name = name
+    self.age = age
+    
+# 2、实例化对象并传入初始化属性值
+p1 = person("孙悟空",500)
+# 3.调用p1对象自身属性name与age
+print(p1.name)
+print(p1.age)
+
+"""
+总结：
+__init__()方法，在创建一个对象时默认被调用，不需要手动调用。
+__init__(self)中的self参数，不需要开发者传递，Python解释器会自动把当前的对象引用传递过去。
+"""
+
+
+# 2、__str__()方法
+"""
+(1)、当使用print输出对象时，默认打印对象的内存地址.如果类定义了__str__()方法，那么就会打印__str__()中return的结果
+(2)、__str__()在类的外部，使用print()时，自动被调用
+(3)、在类的内部定义__str__()方法时，必须使用return 返回一个字符串类型的数据
+
+"""
+
+# 没有使用__str__()方法的类：
+# 1、定义一个类
+class Car():
+  # 首先定义一个__init__方法，用于初始化实例对象属性
+  def __init__ (self,brand,model,color):
+    self.brand = brand
+    self.model = model
+    self.color = color
+
+  # # 为了得到汽车的相关信息，定义一个方法，用于信息输出
+  # def print_info(self):
+  #   print(f"汽车品牌：{self.brand}，汽车型号：{self.model}，汽车颜色：{self.color}")
+
+  # 定义一个__str__()方法,用于输出相关信息
+  def __str__(self):
+    # return "当在外部使用print方法打印对象时，我会自动被调用。。。"
+    return f"汽车品牌：{self.brand}，汽车型号：{self.model}，汽车颜色：{self.color}"
+
+# 2、实例化对象c1
+c1 = Car("奔驰","S600","黑色")
+print() # <__main__.Car object at 0x000002B711EE9DD0> 默认打印对象的内存地址
+# c1.print_info()
+print(c1) 
+
+
+
+# 3、__del__()方法   (删除方法或析构方法)
+"""
+当删除对象时，python解释器也会默认调用__del__()方法
+
+__del__()方法主要用于：当删除一个对象时，做一些善后处理工作，比如：关闭文件夹操作、释放内存、关闭数据库连接等
+"""
+class Person():
+  # 构造函数__init__
+  def __init__(self, name, age):
+    self.name = name
+    self.age = age
+  # 析构函数__del__
+  def __del__(self):
+    print(f"对象{self.name}已经被删除") 
+  
+# 实例化对象
+p1 = Person("张三",180)
+# 删除对象p1
+del p1 
